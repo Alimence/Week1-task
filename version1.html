@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>TO Do List Application</title>
+</head>
+<body>
+     <div class="container bg-gray-200 p-3 flex-col space shadow-lg m-auto my-6 ">
+        <p class="font-semibold text-lg text-center py-2">Elements on the To Do list</p>
+        <ul class="list-disc text-center pl-5 " id="taskDisplay">
+           
+        </ul>
+     </div>
+
+
+     <script>
+        let tasks = ["Buy milk" , "Clean the room" ,"go to the gym"];
+
+            const displayTasks = () => {
+                let textDisplay = document.querySelector('#taskDisplay');
+                taskDisplay.innerHTML = '';
+                tasks.forEach((task, index) => {
+                    const taskItem = document.createElement('li');
+                    taskItem.classList.add('bg-blue-200' ,'p-2', 'm-2', 'rounded-lg', 'decoration-none' , 'list-none');
+                    taskItem.textContent = task;
+                    taskDisplay.appendChild(taskItem);
+                })
+
+
+
+            }
+
+            const addtask = (task) =>{
+                tasks.push(task);
+                displayTasks();
+            }
+            displayTasks();
+            addtask('Buy bread');
+     </script>
+
+</body>
+</html>
